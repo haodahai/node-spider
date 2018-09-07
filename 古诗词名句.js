@@ -2,7 +2,6 @@ var cheerio = require('cheerio');
 var request = require('request');
 var fs = require('fs');
 var temme = require('temme').default;
-var axios = require('axios');
 
 for(let j = 1;j<=200;j++){
 	var url = 'https://so.gushiwen.org/mingju/default.aspx?p='+j+'&c=&t=';
@@ -20,7 +19,7 @@ for(let j = 1;j<=200;j++){
 		}
 
 		// console.log(JSON.stringify(sentenceArr));
-		fs.writeFile('名句/'+j+'.json',JSON.stringify(sentenceArr)+',', function(){
+		fs.writeFile('名句/'+j+'.json',JSON.stringify(sentenceArr), function(){
 			console.log('成功')
 		});
 	})

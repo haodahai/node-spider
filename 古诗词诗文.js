@@ -22,7 +22,7 @@ for(let i = 1;i<= 100;i++){
 			titleArr[j].author = authorArr[j].author;
 			titleArr[j].content = contentArr[j].content;
 		}
-		fs.writeFile('诗文/'+i+'.json',JSON.stringify(titleArr)+',', function(){
+		fs.writeFile('诗文/'+i+'.json',JSON.stringify(titleArr), function(){
 			console.log('成功')
 		});
 	})

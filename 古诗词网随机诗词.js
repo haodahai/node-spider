@@ -23,7 +23,7 @@ request(url,function(err,data){
 	}
 	// console.log(JSON.stringify(titleArr));
 	titleArr = JSON.stringify(titleArr);
-	fs.writeFile('1.json', titleArr+',', function(){
+	fs.writeFile('1.json', titleArr, function(){
 		console.log('成功')
 	});
 })

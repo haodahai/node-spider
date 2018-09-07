@@ -2,8 +2,8 @@ var cheerio = require('cheerio');
 var request = require('request');
 var fs = require('fs');
 var temme = require('temme').default;
-var url = require('url');
 
+var arr = [];
 for(let i = 1;i<=354;i++){
 	var url = 'https://so.gushiwen.org/authors/default.aspx?p='+i+'&c=';
 	request(url,function(err,data){
@@ -19,10 +19,11 @@ for(let i = 1;i<=354;i++){
 			links[a].href="https://so.gushiwen.org"+links[a].href;
 		}
 
-		console.log(links);
-		links = JSON.stringify(links);
+		arr=arr.concat(links);
+		console.log(arr);
+		// arr = JSON.stringify(arr);
 
-		fs.appendFile('./作者/诗人.json',JSON.stringify(links)+',',function(){
+		fs.writeFile('./作者/诗人.json',JSON.stringify(arr),function(){
 			console.log('成功');
 		})
 	})
